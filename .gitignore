@@ -3,10 +3,10 @@
 .env.local
 .env.*.local
 
-# Uploads
-uploads/products/
-uploads/videos/
-uploads/*
+# # Uploads
+# uploads/products/
+# uploads/videos/
+# uploads/*
 
 # Logs
 logs/
