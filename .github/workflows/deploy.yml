@@ -1,0 +1,23 @@
+name: Deploy S-NET to cPanel
+
+on:
+  push:
+    branches: [ main, master ]
+   
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: "s-net.co.tz"
+          username: "snetcotz"
+          port: 4422
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "**"
+          target: "/home/snetcotz/public_html/Becast"
+          rm: false
